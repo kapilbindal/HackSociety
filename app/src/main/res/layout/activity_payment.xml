@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="20dp"
+    tools:context="com.example.kapil.hackteam.PaymentActivity">
+
+    <com.dlazaro66.qrcodereaderview.QRCodeReaderView
+        android:id="@+id/qrdecoderview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:id="@+id/paymentLayout">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Machine Details"
+        android:fontFamily="serif-monospace"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        android:textSize="35sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Text"
+            android:layout_marginTop="10dp"
+            android:textStyle="italic"
+            android:fontFamily="serif"
+            android:textSize="25sp"
+            android:id="@+id/detailsTextView"/>
+        <EditText
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:paddingLeft="20dp"
+            android:textSize="30sp"
+            android:inputType="number"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edittext_shadow"
+        android:hint="Amount"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:text="Money will be sent from your Wallet"/>
+    <info.hoang8f.widget.FButton
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Pay"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        app:fButtonColor="@color/colorPrimary"
+        android:fontFamily="serif-monospace"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_marginTop="50dp"/>
+    </LinearLayout>
+</LinearLayout>
