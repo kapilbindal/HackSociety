@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
     Button btnLogout;
-    ImageView btnPay;
+    ImageView btnPay,btnPassbook;
     private ViewPager mPager;
     private SectionPagerAdapter sectionsPagerAdapter;
     private LinearLayout dotsLayout;
@@ -45,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btnPay = findViewById(R.id.btnPay);
+        btnPassbook = findViewById(R.id.btnPassbook);
+        btnPassbook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,PassbookActivity.class));
+            }
+        });
         btnPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

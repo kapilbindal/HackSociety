@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/edittext_shadow">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order No "
+            android:textStyle="bold"
+            android:fontFamily="serif-monospace"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline" />
+        <TextView
+            android:id="@+id/tvOrderNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Number"
+            android:textStyle="bold"
+            android:fontFamily="serif-monospace"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.SearchResult.Subtitle"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+        <TextView
+            android:id="@+id/tvPayTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Time ,"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.SearchResult.Subtitle" />
+
+        <TextView
+            android:id="@+id/tvPayDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Date "
+            android:layout_marginLeft="10dp"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.SearchResult.Subtitle" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <ImageView
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/vending_machine"/>
+            <TextView
+                android:id="@+id/tvPayDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Details"
+                android:fontFamily="serif"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.SearchResult.Subtitle"
+                android:layout_marginLeft="10dp"/>
+            <TextView
+                android:id="@+id/tvPayAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Amount"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.SearchResult.Subtitle"
+                android:fontFamily="serif"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="130dp"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Successful"
+            android:layout_marginTop="5dp"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+            android:background="@drawable/edittext_shadow"
+            android:gravity="center"/>
+
+    </LinearLayout>
+    
+</android.support.v7.widget.CardView>

@@ -38,6 +38,7 @@
             android:textSize="25sp"
             android:id="@+id/detailsTextView"/>
         <EditText
+            android:id="@+id/tvAmount"
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:paddingLeft="20dp"
@@ -54,6 +55,7 @@
             android:layout_marginTop="15dp"
             android:text="Money will be sent from your Wallet"/>
     <info.hoang8f.widget.FButton
+        android:id="@+id/btnPayAmount"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="Pay"
