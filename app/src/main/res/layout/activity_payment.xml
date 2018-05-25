@@ -7,12 +7,112 @@
     android:orientation="vertical"
     android:layout_margin="20dp"
     tools:context="com.example.kapil.hackteam.PaymentActivity">
-
-    <com.dlazaro66.qrcodereaderview.QRCodeReaderView
-        android:id="@+id/qrdecoderview"
+    <LinearLayout
+        android:id="@+id/paymentLayoutQR"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvAddMoneyToWallet"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Add Money To Wallet"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:background="@drawable/button_create"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+            android:fontFamily="serif-monospace"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OR"
+            android:fontFamily="serif"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center"
+            android:textSize="20sp"/>
+        <com.dlazaro66.qrcodereaderview.QRCodeReaderView
+            android:id="@+id/qrdecoderview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/addMoneyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:background="@drawable/edittext_shadow_complete">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Available Balance"
+                android:layout_marginTop="20dp"
+                android:fontFamily="serif"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rs. 5.74"
+                android:layout_marginTop="15dp"
+                android:fontFamily="serif"
+                android:textSize="50sp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"/>
+        </LinearLayout>
+        <EditText
+            android:id="@+id/edBankName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_shadow"
+            android:hint="Bank Name"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="20dp"
+            android:fontFamily="serif"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"/>
+        <EditText
+            android:id="@+id/edAddAmount"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_shadow"
+            android:hint="Amount"
+            android:inputType="number"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="20dp"
+            android:fontFamily="serif"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"/>
+
+        <info.hoang8f.widget.FButton
+            android:id="@+id/btnAddMoney"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:text="Add Money"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+            android:fontFamily="serif-monospace"/>
+        <EditText
+            android:visibility="gone"
+            android:id="@+id/edAddSuccess"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Successfull"
+            android:fontFamily="serif-monospace"
+            android:layout_marginTop="50dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+            android:textColor="#ffffff"
+            android:background="@drawable/button_login"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,13 +132,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Text"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="50dp"
             android:textStyle="italic"
             android:fontFamily="serif"
             android:textSize="25sp"
             android:id="@+id/detailsTextView"/>
         <EditText
-            android:id="@+id/tvAmount"
+            android:id="@+id/edAmount"
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:paddingLeft="20dp"
