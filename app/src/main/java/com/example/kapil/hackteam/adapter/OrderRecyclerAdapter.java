@@ -43,15 +43,15 @@ public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdap
 
     @Override
     public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
-        Log.e(TAG, "onBindViewHolder: " + orderList.size() + "    " );
+        //Log.e(TAG, "onBindViewHolder: " + orderList.size() + "    " );
         Order currentOrder = orderList.get(position);
 
-        Log.e(TAG, "onBindViewHolder: " + currentOrder.getPayDetails() + currentOrder.payAmount );
-        //holder.tvOrderNumber.setText(currentOrder.getOrderNumber() + "");
-        //holder.tvPayTime.setText((int) currentOrder.getPayTime() + "");
-       // holder.tvPayDate.setText(currentOrder.getPayDate().toString() + "");
-        //holder.tvPayDetails.setText(currentOrder.getPayDetails().toString() + "");
-        //holder.tvPayAmount.setText(String.valueOf(currentOrder.getPayAmount()) + "");
+        //Log.e(TAG, "onBindViewHolder: " + currentOrder.getPayDetails() + currentOrder.payAmount );
+        holder.tvOrderNumber.setText(currentOrder.getOrderNumber() + "");
+        holder.tvPayTime.setText(currentOrder.getPayTime() + "");
+        holder.tvPayDate.setText(currentOrder.getPayDate() + "");
+        holder.tvPayDetails.setText(currentOrder.getPayDetails().toString() + "");
+        holder.tvPayAmount.setText("Rs. " + currentOrder.getPayAmount() + "");
     }
 
     @Override

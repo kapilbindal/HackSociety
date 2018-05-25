@@ -1,34 +1,46 @@
 package com.example.kapil.hackteam;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.PointF;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dlazaro66.qrcodereaderview.QRCodeReaderView;
 import com.example.kapil.hackteam.adapter.OrderRecyclerAdapter;
 import com.example.kapil.hackteam.models.Order;
+import com.example.kapil.hackteam.models.Summary;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class PaymentActivity extends AppCompatActivity implements QRCodeReaderView.OnQRCodeReadListener {
 
+    public static String orderNumber = "52170109";
     private TextView detailsTextView,tvAmount;
+    public static final String TAG = "fdf";
     private QRCodeReaderView qrCodeReaderView;
     LinearLayout paymentLayout;
+    EditText edSuccess;
     ArrayList<Order> orderArrayList;
     Button btnPaymentAmount;
     OrderRecyclerAdapter orderRecyclerAdapter;
-    DatabaseReference mDatabase;
+    DatabaseReference mDatabase,mDatabaseSummary;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,16 +51,44 @@ public class PaymentActivity extends AppCompatActivity implements QRCodeReaderVi
         paymentLayout = findViewById(R.id.paymentLayout);
         btnPaymentAmount = findViewById(R.id.btnPayAmount);
         mDatabase = FirebaseDatabase.getInstance().getReference("Orders");
+        mDatabaseSummary = FirebaseDatabase.getInstance().getReference("Summary");
         tvAmount = findViewById(R.id.tvAmount);
+        edSuccess = findViewById(R.id.edSuccess);
+        progressDialog = new ProgressDialog(this);
+
 
         btnPaymentAmount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String id = mDatabase.push().getKey();
-                Toast.makeText(PaymentActivity.this, detailsTextView.getText().toString(), Toast.LENGTH_SHORT).show();
-                Order order = new Order(1515544451,11.51,"18 May 2018",detailsTextView.getText().toString(),Integer.parseInt(tvAmount.getText().toString()));
-                //orderArrayList.add(order);
+                //Toast.makeText(PaymentActivity.this, detailsTextView.getText().toString(), Toast.LENGTH_SHORT).show();
+                String currentTimeString = DateFormat.getTimeInstance().format(new Date());
+                String currentDateString = DateFormat.getDateInstance().format(new Date());
+                Summary summary = new Summary("From: " + id,currentTimeString,currentDateString,Integer.parseInt(tvAmount.getText().toString())  );
+                Order order = new Order(id ,currentTimeString,currentDateString,detailsTextView.getText().toString(),Integer.parseInt(tvAmount.getText().toString()));
                 mDatabase.child(id).setValue(order);
+                mDatabaseSummary.child(id).setValue(summary);
+                btnPaymentAmount.setVisibility(View.GONE);
+
+                progressDialog.setMessage("Please wait your transaction is being processed");
+                progressDialog.show();
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        progressDialog.hide();
+                        edSuccess.setVisibility(View.VISIBLE);
+
+                    }
+                }, 2000);
+                Handler handler2 = new Handler();
+                handler2.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        startActivity(new Intent(PaymentActivity.this,MainActivity.class));
+                    }
+                }, 4000);
             }
         });
 

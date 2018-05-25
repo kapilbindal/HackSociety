@@ -65,5 +65,19 @@
         android:fontFamily="serif-monospace"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
         android:layout_marginTop="50dp"/>
+        <EditText
+            android:visibility="gone"
+            android:id="@+id/edSuccess"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Successfull"
+            android:fontFamily="serif-monospace"
+            android:layout_marginTop="50dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+            android:textColor="#ffffff"
+            android:background="@drawable/button_login"/>
     </LinearLayout>
+
 </LinearLayout>

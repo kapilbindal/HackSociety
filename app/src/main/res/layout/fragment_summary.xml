@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="@drawable/edittext_shadow_complete">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total available balance to pay"
+            android:layout_marginTop="20dp"
+            android:fontFamily="serif"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"/>
+        <TextView
+            android:id="@+id/tvMoneyLeft"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rs. 5.74"
+            android:layout_marginTop="15dp"
+            android:fontFamily="serif"
+            android:textSize="50sp"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"/>
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Money added Statement"
+                android:fontFamily="serif-monospace"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"/>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvSummaryList"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

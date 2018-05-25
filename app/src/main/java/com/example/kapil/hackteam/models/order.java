@@ -5,15 +5,15 @@ package com.example.kapil.hackteam.models;
  */
 
 public class Order {
-    public int orderNumber;
-    public double payTime;
+    public String orderNumber;
+    public String payTime;
     public String payDate;
     public String payDetails;
     public int payAmount;
 
     public Order (){}
 
-    public Order(int orderNumber, double payTime, String payDate, String payDetails, int payAmount) {
+    public Order(String orderNumber, String payTime, String payDate, String payDetails, int payAmount) {
         this.orderNumber = orderNumber;
         this.payTime = payTime;
         this.payDate = payDate;
@@ -21,11 +21,11 @@ public class Order {
         this.payAmount = payAmount;
     }
 
-    public int getOrderNumber() {
+    public String getOrderNumber() {
         return orderNumber;
     }
 
-    public double getPayTime() {
+    public String getPayTime() {
         return payTime;
     }
 
@@ -41,11 +41,11 @@ public class Order {
         return payAmount;
     }
 
-    public void setOrderNumber(int orderNumber) {
+    public void setOrderNumber(String orderNumber) {
         this.orderNumber = orderNumber;
     }
 
-    public void setPayTime(double payTime) {
+    public void setPayTime(String payTime) {
         this.payTime = payTime;
     }
 
